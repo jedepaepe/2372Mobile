@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Restaurant Adviser</string>
+    <string name="find_restaurant">Find restaurant</string>
+    <string name="brands">No restaurant selected</string>
+    <string-array name="restaurant_style">
+        <item>Cuisine Française</item>
+        <item>Indien</item>
+        <item>Chinois</item>
+    </string-array>
+    <string-array name="restaurants_0">
+        <item>Top Chef</item>
+        <item>Chez Luzette</item>
+        <item>Au bon Coq</item>
+    </string-array>
+    <string-array name="restaurant_1">
+        <item>Poulet riz curry</item>
+    </string-array>
+    <string-array name="restaurant_2">
+        <item>"Boeuf aigre-doux"</item>
+    </string-array>
+</resources>
