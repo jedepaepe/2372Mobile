@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         simpleProgressBar = findViewById(R.id.simpleProgressBar);
     }
 
+    // assign the menu to the application
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             chuckQueryTask.execute(url);
             simpleProgressBar.setVisibility(View.VISIBLE);
         }
-        return true;    // TODO
+        return true;    // no matter true or false
     }
 
     private class ChuckQueryTask extends AsyncTask<String, Void, String> {
