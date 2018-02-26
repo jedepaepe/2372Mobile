@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner menuCategories;
     TextView textUrl;
     TextView textChuckFact;
+    ProgressBar simpleProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         menuCategories = findViewById(R.id.menu_categories);
         textUrl = findViewById(R.id.text_url);
         textChuckFact = findViewById(R.id.text_chuck_fact);
+        simpleProgressBar = findViewById(R.id.simpleProgressBar);
     }
 
     @Override
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             String url = "https://api.chucknorris.io/jokes/random?category=" + selected; // TODO put it in resource
             ChuckQueryTask chuckQueryTask = new ChuckQueryTask();
             chuckQueryTask.execute(url);
+            simpleProgressBar.setVisibility(View.VISIBLE);
         }
         return true;    // TODO
     }
@@ -89,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception ex) {
                 textChuckFact.append("Sorry, the connection is lost");
             }
+            simpleProgressBar.setVisibility(View.INVISIBLE);
         }
     }
 
