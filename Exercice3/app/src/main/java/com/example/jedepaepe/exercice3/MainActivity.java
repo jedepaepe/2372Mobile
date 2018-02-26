@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+            String selected = menuCategories.getSelectedItem().toString();
+            String url = "https://api.chucknorris.io/jokes/random?category=" + selected; // TODO put it in resource
+            ChuckQueryTask chuckQueryTask = new ChuckQueryTask();
+            chuckQueryTask.execute(url);
         }
         return true;
     }
@@ -58,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String responseString = null;
             if(strings.length != 0) {
-                String url = "https://api.chucknorris.io/jokes/random?category={" + strings[0] + "}"; // TODO put it in resource
+                String url = strings[0];
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
                         .url(url)
                         .build();  // TODO (1) political from selection && text from resources
-                Response response = null;
+                Response response;
                 try {
                     response = client.newCall(request).execute();
                     responseString = response.body().string();
@@ -72,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return responseString;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            textChuckFact.append(result);
         }
     }
 
