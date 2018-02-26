@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Chucks Facts</string>
+    <string-array name="ama_spinner">
+        <item>movie</item>
+        <item>food</item>
+        <item>celebrity</item>
+        <item>science</item>
+        <item>sport</item>
+        <item>political</item>
+    </string-array>
+    <string name="text_url">URL will show here</string>
+    <string name="text_chuck_fact">Chuck Norris facts will show here</string>
+    <string name="search_string">SEARCH!</string>
+</resources>
