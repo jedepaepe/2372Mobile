@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             ChuckQueryTask chuckQueryTask = new ChuckQueryTask();
             chuckQueryTask.execute(url);
         }
-        return true;
+        return true;    // TODO
     }
 
     private class ChuckQueryTask extends AsyncTask<String, Void, String> {
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     response = client.newCall(request).execute();
                     responseString = response.body().string();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    e.printStackTrace();    // TODO
                 }
             }
             return responseString;
@@ -80,7 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            textChuckFact.append(result);
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                String fact = jsonObject.getString("value");
+                textChuckFact.append(fact + "\n\n");
+            } catch (Exception ex) {
+                textChuckFact.append("Sorry, the connection is lost");
+            }
         }
     }
 
