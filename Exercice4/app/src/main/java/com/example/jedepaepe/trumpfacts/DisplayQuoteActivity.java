@@ -3,6 +3,8 @@ package com.example.jedepaepe.trumpfacts;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONObject;
 
@@ -14,10 +16,19 @@ import okhttp3.Response;
 
 public class DisplayQuoteActivity extends AppCompatActivity {
 
+    TextView tvTrumpThink;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_quote);
+        tvTrumpThink = findViewById(R.id.tvTrumpThink);
+    }
+
+    protected void onGetNextQuote(View view) {
+        TrumpQueryTask trumpQueryTask = new TrumpQueryTask();
+        trumpQueryTask.execute("\"https://api.whatdoestrumpthink.com/api/v1/quotes/random\"");
+
     }
 
     private class TrumpQueryTask extends AsyncTask<String, Void, String> {
@@ -46,8 +57,8 @@ public class DisplayQuoteActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                String fact = jsonObject.getString("value");
-//                textChuckFact.append(fact + "\n\n");
+                String trumpThink = jsonObject.getString("message");
+                tvTrumpThink.append(trumpThink);
             } catch (Exception ex) {
 //                textChuckFact.append("Sorry, the connection is lost");
             }

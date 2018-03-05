@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jedepaepe.trumpfacts.StartActivity"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    >
+
+    <EditText
+        android:text="@string/et_activity_start_name"
+        android:layout_marginLeft="20dp"
+        android:layout_width="0dp"
+        android:layout_weight="45"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="@string/btn_activity_start_Go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
