@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TrumpFacts</string>
+    <string name="btn_get_next_quote">Get next quote</string>
+</resources>
