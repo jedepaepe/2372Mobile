@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ChuckFacts</string>
+    <string name="search_string">SEARCH!</string>
+
+    <string-array name="categories">
+        <item>movie</item>
+        <item>food</item>
+        <item>celebrity</item>
+        <item>science</item>
+        <item>sport</item>
+        <item>political</item>
+    </string-array>
+
+</resources>
