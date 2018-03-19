@@ -1,6 +1,7 @@
 package eu.epfc.swexplorer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,7 +17,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import eu.epfc.swEplorer.DetailActivity;
+
+public class MainActivity extends AppCompatActivity implements SWPlanetsAdapter.ListItemClickListener {
 
 
     private RecyclerView planetsRecyclerView;
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         planetsRecyclerView = findViewById(R.id.recyclerview_cards);
 
         // set the adapter of the RecyclerView
-        SWPlanetsAdapter swPlanetsAdapter = new SWPlanetsAdapter();
+        SWPlanetsAdapter swPlanetsAdapter = new SWPlanetsAdapter(this);
         planetsRecyclerView.setAdapter(swPlanetsAdapter);
 
         // set the layoutManager of the recyclerView
@@ -138,4 +141,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        //Log.d("main activity called", "clickedIndex: " + clickedItemIndex);
+        Intent intent = new Intent(this, DetailActivity.class);
+        Planet planet = planets.get(clickedItemIndex);
+        if(planet == null) Log.e("bad planet", "index: " + clickedItemIndex);
+        intent.putExtra("planet", planet);
+        startActivity(intent);
+    }
 }

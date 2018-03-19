@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="80dp"
+    android:background="@android:color/darker_gray"
     >
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/text_planet_name"
-        android:padding="16dp"
-        android:text="A planet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textSize="40dp"
-        />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="A planet"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text_diameter"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Diameter : 1250" />
+
+    <TextView
+        android:id="@+id/text_terrain"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_diameter"
+        tools:text="Terrain : grasslands,mountains" />
+
+    <ImageView
+        android:id="@+id/image_population_3"
+        android:layout_width="15dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/population_image" />
+
+    <ImageView
+        android:id="@+id/image_population_2"
+        android:layout_width="15dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/image_population_3"
+        app:srcCompat="@drawable/population_image" />
+
+    <ImageView
+        android:id="@+id/image_population_1"
+        android:layout_width="15dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/image_population_2"
+        app:srcCompat="@drawable/population_image" />
+
+</android.support.constraint.ConstraintLayout>

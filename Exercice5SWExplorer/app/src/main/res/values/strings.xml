@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SWExplorer</string>
+    <string name="climate">Climate</string>
+    <string name="detail_title">Planet</string>
+    <string name="diameter">Diameter</string>
+    <string name="orbital_period">Orbital Period</string>
+    <string name="rotation_period">Rotation Period</string>
 </resources>

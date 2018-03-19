@@ -1,11 +1,13 @@
 package eu.epfc.swexplorer;
 
 
+import java.io.Serializable;
+
 /**
  * Created by Quentin on 25/02/2018.
  */
 
-public class Planet {
+public class Planet implements Serializable {
 
     private String name;
     private  String climate;

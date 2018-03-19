@@ -1,9 +1,11 @@
 package eu.epfc.swexplorer;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,8 +16,16 @@ import java.util.List;
 
 public class SWPlanetsAdapter extends RecyclerView.Adapter<SWPlanetsAdapter.PlanetViewHolder> {
 
-    private List<Planet> planetData;
+    public interface ListItemClickListener {
+        void onListItemClick(int clickedItemIndex);
+    }
 
+    private List<Planet> planetData;
+    final private ListItemClickListener listItemClickListener;
+
+    public SWPlanetsAdapter(ListItemClickListener listItemClickListener) {
+        this.listItemClickListener = listItemClickListener;
+    }
 
     public void setPlanetData(List<Planet> planetData) {
 
@@ -47,30 +57,29 @@ public class SWPlanetsAdapter extends RecyclerView.Adapter<SWPlanetsAdapter.Plan
         // get the TextView of the item
         ViewGroup itemViewGroup = (ViewGroup)holder.itemView;
         TextView planetNameTextView = itemViewGroup.findViewById(R.id.text_planet_name);
+        TextView diameterTextView = itemViewGroup.findViewById(R.id.text_diameter);
+        TextView terrainTextView = itemViewGroup.findViewById(R.id.text_terrain);
+        ImageView[] populationImageViewList = {
+                itemViewGroup.findViewById(R.id.image_population_1),
+                itemViewGroup.findViewById(R.id.image_population_2),
+                itemViewGroup.findViewById(R.id.image_population_3)};
 
         // set the text of the TextView
         planetNameTextView.setText(planet.getName());
 
-        // set the color of the background
-        if (planet.getPopulation() == 0)
-        {
-            itemViewGroup.setBackgroundResource(R.color.planetColor1);
-        }
+        // set the diameter
+        diameterTextView.setText("Diameter: " + planet.getDiameter());
 
-        else if (planet.getPopulation() <= 100000000)
-        {
-            itemViewGroup.setBackgroundResource(R.color.planetColor2);
+        // set the terrain
+        terrainTextView.setText("Terrain: " + planet.getTerrain());
 
-        }
-        else if (planet.getPopulation() <= 1000000000)
-        {
-            itemViewGroup.setBackgroundResource(R.color.planetColor3);
-
-        }
-        else
-        {
-            itemViewGroup.setBackgroundResource(R.color.planetColor4);
-        }
+        // show images
+        int nrImages = 0;
+        if (planet.getPopulation() == 0) nrImages = 0;
+        else if (planet.getPopulation() <= 100000000) nrImages = 1;
+        else if (planet.getPopulation() <= 1000000000) nrImages = 2;
+        else nrImages = 3;
+        for(int i=0; i<populationImageViewList.length; i++) populationImageViewList[i].setVisibility((i<nrImages) ? View.VISIBLE : View.INVISIBLE);
     }
 
     @Override
@@ -84,11 +93,17 @@ public class SWPlanetsAdapter extends RecyclerView.Adapter<SWPlanetsAdapter.Plan
         }
     }
 
-    class PlanetViewHolder extends RecyclerView.ViewHolder{
+    class PlanetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private PlanetViewHolder(View itemView) {
-
             super(itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            // récupère la référence sur le parent
+            SWPlanetsAdapter.this.listItemClickListener.onListItemClick(getAdapterPosition());
         }
 
     }
