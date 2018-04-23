@@ -1,4 +1,4 @@
-package eu.epfc.swEplorer;
+package eu.epfc.swexplorer;
 
 import android.content.Intent;
 import android.content.res.Resources;

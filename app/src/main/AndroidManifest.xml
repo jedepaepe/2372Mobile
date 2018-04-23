@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eu.epfc.swexplorer">
+    package="com.example.jedepaepe.labo9service">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity"></activity>
+        <service
+            android:name=".HttpRequestService"
+            android:exported="false" />
     </application>
 
 </manifest>

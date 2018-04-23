@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://C:\Users\jedepaepe\Documents\cours\2372Mobile\Labo8Fragments\Exercice5Solution.iml" filepath="C:\Users\jedepaepe\Documents\cours\2372Mobile\Labo8Fragments\Exercice5Solution.iml" />
       <module fileurl="file://$PROJECT_DIR$/Labo8Fragments.iml" filepath="$PROJECT_DIR$/Labo8Fragments.iml" />
+      <module fileurl="file://C:\Users\jedepaepe\Documents\2372Mobile\Labo8Fragments\Labo8Fragments.iml" filepath="C:\Users\jedepaepe\Documents\2372Mobile\Labo8Fragments\Labo8Fragments.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\jedepaepe\Documents\cours\2372Mobile\Labo8Fragments\app\app.iml" filepath="C:\Users\jedepaepe\Documents\cours\2372Mobile\Labo8Fragments\app\app.iml" />
+      <module fileurl="file://C:\Users\jedepaepe\Documents\2372Mobile\Labo8Fragments\app\app.iml" filepath="C:\Users\jedepaepe\Documents\2372Mobile\Labo8Fragments\app\app.iml" />
     </modules>
   </component>
 </project>

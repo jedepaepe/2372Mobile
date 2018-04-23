@@ -17,8 +17,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.epfc.swEplorer.DetailActivity;
-
 public class MainActivity extends AppCompatActivity implements SWPlanetsAdapter.ListItemClickListener {
 
 
