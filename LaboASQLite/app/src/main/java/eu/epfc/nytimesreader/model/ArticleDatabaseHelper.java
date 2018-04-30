@@ -31,6 +31,10 @@ public class ArticleDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public void clearArticles() {
+        getWritableDatabase().delete(DbConst.TABLE_ARTICLE, null, null);
+    }
+
     public void addArticle(Article article) {
         addArticle(article.title, article.articleAbstract);
     }

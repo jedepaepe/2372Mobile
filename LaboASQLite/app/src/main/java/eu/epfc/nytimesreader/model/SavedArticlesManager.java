@@ -30,7 +30,7 @@ public class SavedArticlesManager {
     }
 
     public void saveArticles(List<Article> articles) {
-        articles.clear();
+        articleDatabaseHelper.clearArticles();
         for (Article article: articles) {
             articleDatabaseHelper.addArticle(article);
         }

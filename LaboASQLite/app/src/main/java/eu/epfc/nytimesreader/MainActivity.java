@@ -24,7 +24,6 @@ import eu.epfc.nytimesreader.model.SavedArticlesManager;
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "MainActivity";
-    private HttpRequestService httpRequestService = new HttpRequestService();
     private ArticlesAdapter articlesAdapter;
 
     @Override
